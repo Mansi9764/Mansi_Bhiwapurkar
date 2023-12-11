@@ -10,3 +10,5 @@ def view_list_page(request):
     return render(request,"list_page.html",context)
 
 
+def create(request):
+    return render(request,"create.html")
