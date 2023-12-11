@@ -54,4 +54,21 @@ def updateData(request,id):
         print("Id------",id)
         data = Contact.objects.get(id=id)
         context={"data":data}
-        return render(request,"edit.html",context)
+        return render(request,"edit.html",context)  
+    
+
+def deleteData(request,id):  
+    if request.method=="POST":
+       button_clicked = request.POST.get('button', '')
+       print(button_clicked)
+       if button_clicked == 'cancel':
+            return redirect("/")
+       else:
+            data= Contact.objects.get(id=id)
+            Context={"data":data}
+            return render(request,"confirmDelete.html",Context)
+    else:
+        data=Contact.objects.get(id=id)
+        deleteContext={"data":data}
+        return render(request,"delete.html",deleteContext)
+    
