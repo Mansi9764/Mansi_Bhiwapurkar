@@ -72,3 +72,9 @@ def deleteData(request,id):
         deleteContext={"data":data}
         return render(request,"delete.html",deleteContext)
     
+    
+def confirmDelete(request,id):
+     delContactObject= Contact.objects.get(id=id)   
+     delContactObject.delete()
+     messages.info(request,"Data deleted successfully")
+     return redirect("/")
