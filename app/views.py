@@ -35,3 +35,23 @@ def insertData(request):
                 context={"data":data}
                 messages.info(request,"Data inserted successfully")
                 return render(request,"list_page.html",context) 
+            
+def updateData(request,id):
+    if request.method=="POST":
+        name=request.POST.get("name")
+        email=request.POST.get("email")
+        notes=request.POST.get("notes")
+        editStudent = Contact.objects.get(id=id)
+        editStudent.name=name
+        editStudent.email=email
+        editStudent.notes=notes
+        print("request objected",name,email,notes)
+        print("NEW UPDATED OBJECT:",editStudent.id,editStudent.name,editStudent.email,editStudent.notes,editStudent.time)
+        editStudent.save()
+        print("updated successfully")
+        return redirect("/")
+    else:
+        print("Id------",id)
+        data = Contact.objects.get(id=id)
+        context={"data":data}
+        return render(request,"edit.html",context)

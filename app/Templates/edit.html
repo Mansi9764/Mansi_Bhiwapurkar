@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Crud Mini Project</title>
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1; /* Add a background color for better visibility */
+        text-align: center;
+        padding: 10px;
+        color: green; /* Set the text color to green */
+    }
+</style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-md text-center">
+          <a class="navbar-brand " href="/">CRUD MINI PROJECT</a>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-5">
+                <h2 class="text-white bg-dark text-center p-3">Update Contact</h2>
+                <br>
+                <form action="/update/{{data.id}}" method="post"> {% csrf_token %}
+                    {% comment %} <div class="form-group">
+                        <label for="name">ID:</label>
+                        <input type="number" class="form-control" value="{{d.id}}" name="id" required>
+                    </div> {% endcomment %}
+                    <div class="form-group">
+                        
+                        <input type="number" class="form-control" id="{{data.id}}" value="{{data.id}}" name="id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="{{data.name}}"  value="{{data.name}}" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="{{data.email}}" value="{{data.email}}" name="email"  required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes:</label>
+                        <input type="text" class="form-control" id="{{data.notes}}" value="{{data.notes}}" name="notes" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time:</label>
+                        <input type="text" class="form-control" id="{{data.time}}" value="{{data.time}}" name="time">
+                    </div>
+                    <br>
+                    <div>
+                    <button class="btn btn-primary" type="submit">Update</button>
+                    <button class="btn btn-primary" type="submit">Cancel</button>
+                    </div>
+                </form>
+            
+
+
+        </div>
+    </div>
+</div>
+  </body>
+
+  <footer>
+    <p>&copy;Created by Mansi Bhiwapurkar</p>
+</footer>
+
+</html>
